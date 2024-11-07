@@ -1,0 +1,70 @@
+ <!-- Breadcrumb Section Begin -->
+ <div class="breacrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <span>Register</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Form Section Begin -->
+
+<!-- Register Section Begin -->
+<div class="register-login-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="register-form">
+                    <h2>Register</h2>
+                    <form [formGroup]="RegistreForm">
+                        <div class="group-input">
+                            <label for="username">Username *</label>
+                            <input type="text" id="username" formControlName="username" >
+                            @if(RegistreForm.get('username')?.hasError('required') && RegistreForm.get('username')?.touched){
+                                <div class="text-danger">
+                                    Le champ "username" est obligatoire.
+                                </div>} 
+                        </div>
+                        <div class="group-input">
+                            <label for="email">Email *</label>
+                            <input type="email"  formControlName="email" placeholder="exemple@gmail.com">
+                            @if(RegistreForm.get('email')?.hasError('required') && RegistreForm.get('email')?.touched){
+                            <div class="text-danger">
+                                Le champ "email" est obligatoire.
+                            </div>}
+                            @if(RegistreForm.get('email')?.hasError('pattern') && RegistreForm.get('email')?.touched){
+                            <div class="text-danger">
+                                Le format l’adresse mail   n'est pas valide.
+                            </div> }
+                        </div>
+                        <div class="group-input">
+                            <label for="localization">Localization *</label>
+                            <input type="text" id="localization" formControlName="localization">
+                            @if(RegistreForm.get('localization')?.hasError('required') && RegistreForm.get('localization')?.touched){
+                                <div class="text-danger">
+                                    Le champ "localization" est obligatoire.
+                                </div>}
+                        </div>
+                        <div class="group-input">
+                            <label for="pass">Password *</label>
+                            <input type="password" id="pass" formControlName="password">
+                            @if(RegistreForm.get('password')?.hasError('required') && RegistreForm.get('password')?.touched){
+                                <div class="text-danger">
+                                    Le champ "Password" est obligatoire.
+                                </div>}
+                        </div>
+                        <button type="submit"   class="site-btn register-btn" (click)="Registre()">REGISTER</button>
+                    </form>
+                    <div class="switch-login">
+                        <a href="./login.html" class="or-login">Or Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register Form Section End -->
